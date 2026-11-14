@@ -1,4 +1,4 @@
-# loop_engineering_study
+# Loop engineering study
 Estudos sobre Loop Engineering
 
 ## Pré-requisitos
