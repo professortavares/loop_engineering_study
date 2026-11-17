@@ -221,3 +221,9 @@ __marimo__/
 
 # Histórico de chat do notebook 05
 historico_chat.db
+
+# MLflow local (notebooks/03-MLFlow)
+mlflow.db
+mlflow.db-*
+mlruns/
+mlartifacts/

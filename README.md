@@ -1,4 +1,4 @@
-# loop_engineering_study
+# Loop engineering study
 Estudos sobre Loop Engineering
 
 ## Pré-requisitos
@@ -22,7 +22,7 @@ uv sync --frozen
 ```
 
 Isso cria o ambiente virtual em `.venv/` com as dependências do `pyproject.toml`
-(`jupyterlab`, `langchain` e `langgraph`), sem alterar o `uv.lock`.
+(`jupyterlab`, `langchain`, `langgraph` e `mlflow`), sem alterar o `uv.lock`.
 
 ## Iniciando o Jupyter Lab
 
@@ -36,6 +36,22 @@ O Jupyter Lab abre no navegador. Se não abrir sozinho, copie a URL com token qu
 (algo como `http://localhost:8888/lab?token=...`) e cole no navegador.
 
 Para parar o servidor, pressione `Ctrl+C` no terminal e confirme com `y`.
+
+## Interface do MLflow
+
+Os notebooks de `notebooks/03-MLFlow/` gravam os prompts num banco SQLite, `mlflow.db`, na pasta do notebook. Para ver os prompts no navegador:
+
+1. Rode o notebook `01-Prompts versionados - MLflow.ipynb` pelo menos uma vez, para criar o banco.
+2. Abra um terminal na pasta `notebooks/03-MLFlow` (o caminho do banco é relativo a ela) e rode:
+
+   ```bash
+   uv run --project ../.. mlflow ui --backend-store-uri sqlite:///mlflow.db --port 5000
+   ```
+
+3. Abra `http://127.0.0.1:5000` e procure a seção **Prompts**.
+4. Pressione `Ctrl+C` no terminal para parar.
+
+Se a porta 5000 estiver ocupada, use outra, como `--port 5055`. O `mlflow.db` e as pastas `mlruns/` e `mlartifacts/` estão no `.gitignore`.
 
 ## VS Code Web no Jupyter Lab (jupyter-code-server)
 
