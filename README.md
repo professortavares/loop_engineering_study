@@ -53,6 +53,22 @@ Os notebooks de `notebooks/03-MLFlow/` gravam os prompts num banco SQLite, `mlfl
 
 Se a porta 5000 estiver ocupada, use outra, como `--port 5055`. O `mlflow.db` e as pastas `mlruns/` e `mlartifacts/` estão no `.gitignore`.
 
+## Servidor MCP de exemplo (notebook 08 do LangGraph)
+
+O notebook `notebooks/02-Langgraph/08-MCP - Langgraph.ipynb` consome um servidor MCP de exemplo, `servidor_mcp_clima.py`, que informa a temperatura de algumas cidades. O servidor precisa estar no ar antes de rodar o notebook.
+
+1. Abra um terminal na pasta `notebooks/02-Langgraph` (o caminho do servidor é relativo a ela) e rode:
+
+   ```bash
+   uv run --project ../.. python servidor_mcp_clima.py
+   ```
+
+2. Deixe o terminal aberto. O servidor fica disponível em `http://127.0.0.1:8000/mcp`.
+3. Rode o notebook. A célula de verificação informa se o servidor está respondendo.
+4. Pressione `Ctrl+C` no terminal para parar o servidor.
+
+Se a porta 8000 estiver ocupada, feche o processo que a está usando antes de iniciar o servidor. Para o modo em que o cliente inicia o servidor sozinho, use `--transporte stdio`, mas nesse caso o notebook precisa ser ajustado.
+
 ## VS Code Web no Jupyter Lab (jupyter-code-server)
 
 O plugin [`jupyter-code-server`](https://pypi.org/project/jupyter-code-server/) abre o VS Code Web
